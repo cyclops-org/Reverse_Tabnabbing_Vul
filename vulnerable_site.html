@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+.wrapper {
+    margin: 0 auto;
+    width: 960px;
+}
+
+h1 {
+text-align: center;
+}
+
+.column {
+    float: left;
+    background-color: lightyellow;
+    width: 300px;
+    border: 15px solid blue;
+    padding: 50px;
+    margin: 20px;
+}
+</style>
+</head>
+
+<body>
+<h1>Web application vulnerable to Reverse Tabnabbing</h1>
+<h1>#POC</h1>
+
+<div class="wrapper">
+<div class="column">
+    <h3>HTML links</h3>
+<a id="unique1" href="http://malicious_website.com:8001/malicious_site.html" target="_blank" rel="opener">Vulnerable target application using html anchor tag to open the new page</a>
+</div>
+<div class="column">
+        <h3>JS code window.open() function</h3>
+    <button onclick="window.open('http://malicious_website.com:8001/malicious_site.html)">Vulnerable target application using javascript to open the new page</button>
+</div>
+    </div>
+
+<!--
+<a id="unique1" href="http://malicious_website.com:8001/malicious_site.html " rel="opener">Vulnerable target application using html anchor tag to open the new page</a>
+Uncaught TypeError: Cannot set properties of null (setting 'location')
+    at malicious_site.html:8:26
+Whenever you try to set a property on an object that is null . In order to fix the error, you need to ensure that the object exists, and its value is not null
+const queryParamsString = window.location.search.substr(1);
+<a id="unique" href="" target="_blank" rel="opener">Vulnerable target using html anchor tag to open the new page</a>
+<a id="unique" href="" target="_blank">Vulnerable target using html anchor tag to open the new page</a>
+<a id="unique" href="" target="_blank" rel="noopener">Vulnerable target using html anchor tag to open the new page</a>
+<script>
+     const params = (new URL(location)).searchParams;
+     fname_og = params.get('fname');
+     document.getElementById('unique1').href = fname_og;
+</script>
+-->
+
+
+
+</body>
+</html>

